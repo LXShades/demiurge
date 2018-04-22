@@ -55,5 +55,15 @@ h1 {
 <p>In fact, DialogueScene could be further be split into DialogueScene and DialogueProcessor. The former could handle the dialogue display and flow, while the latter could store the actual dialogue data and provide it to DialogueScene.</p>
 
 <p>The fact that the dialogue system was the only one I wrote in C++ may raise eyebrows. This is because the rest of the game was being made in Blueprints. Noting a lack of team C++ experience, its crash proneness, long compile times, and the fact that several computers refused to compile it entirely, I believe that was almost certainly the more productive decision concerning player experience (disappoint some lecturers as it may). As such I took a conscious decision not to nag my team mates to use my favourite language.</p>
+
+<h1>The Programming Team: Tomas</h1>
+<p>Hello! I'm Tomas, playing a programming role in this team. Although I'm not as experienced programmer as other my mates, but Unreal gives a good feature to make a lot of stuff with blueprints. And that's what I did the most.</p>
+		
+<p>First thing I did for the game was write a base class for all characters - player and enemies - which included health variable, damage and the way health is calculated when damaged. This was written in the C++ code, which is the only one I did, unfortunately.</p>
+	
+<p>Nonetheless, I was working mainly on the AI of the game, making different types of enemies - melee, shooting and explosive ones, which like to die themselves while taking the player with them. I was using behaviour trees together with AIControllers to all of the enemies, except for the shield ones, because they just need to stand still and deflect the players bullets. I was writing tasks, decorators and services for these behaviour trees, which provided a more precise AI behaviour.</p>
+		
+<p>Besides AI I also wrote most of the player controls and player-related things, such as camera rotation, equipment and inventory systems (which, unfortunately, are not used in the game). 
+	
 </body>
 </html>
