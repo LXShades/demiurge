@@ -70,5 +70,25 @@ h1 {
 		
 <p>Besides AI I also wrote most of the player controls and player-related things, such as camera rotation, equipment and inventory systems (which, unfortunately, are not used in the game). 
 	
+	
+<h1>The Programming Team: Mango</h1>
+
+<p>Greetings! I'm Mango, the third and final programmer for this project. Overall, I was probably the least experienced member of the programming team, lacking knowledge of both C++ and Unreal. Being new to Unreal has probably been the largest challenge for me during development, as I have had to learn many new concepts and workflows related to Unreal.</p>
+
+<p>Architecturally speaking, we wrote relatively few classes for the game. Most of the game is based around a handful of key classes, including HeroCharacter, Enemy, Projectile, Shield and Weapon. Each class therefore has to handle a lot of functionality and are quite heavily connected. Although I created some of initial classes, such as ShooterEnemy, early on in development, for a lot of the project I have worked quite heavily on bugfixes and small features. Things such as adjusting the player's gun spawn position so that it shoots more accurately, and making the shield activate and deactivate on keypress are some examples of the tasks I have worked on.
+</p>
+
+<p>
+One of the slightly bigger features I worked on was the animation blueprints for the player and enemy characters. In this class, the update event reads data from the player character, (speed, direction, if they are shooting, etc.) which is then stored in local variables. These variables can then be accessed in the transition functions, where a set of conditions are defined to specify when the character is allowed to move between animations.
+
+One interesting thing I encountered during this was dealing with the death animation. Unlike other animations, I wanted the player to be able to enter the death animation from any other animation state at any time. To avoid large amounts of duplicated code (and a messy and complicated set of arrows in the state machine) I opted for a slight workaround. Instead of dealing with the death animations in the animation blueprint, I added a second mesh to the character blueprints, and gave that mesh the death animation. I could then hide the default mesh and show the death mesh whenever the player died. 
+
+This worked well for our project as it kept the animation state machine simple and was a quick workaround that didn't take too much time to implement. However, it did mean that not all animations were handled by the animation blueprint, which could be an issue if the project was expanded. 
+</p>
+
+<p>As the enemy animations were implemented fairly late in development, I did not spend much time planning their animation blueprint. In retrospect, it could have been possible to create a base animation blueprint dealing with common animations such as walking and idling, that both the player and enemy animation blueprints could inherit from. Each derived blueprint could then deal with specific animations such as shooting or shielding. This would have simplified each animation state machine further, making it very user-friendly. However, the cost of developing a more complex series of classes would probably have been greater than the value of the changes, as my priority at the time was simply to implement the animations quickly, as we needed a finished build very soon.</p>
+
+
+
 </body>
 </html>
